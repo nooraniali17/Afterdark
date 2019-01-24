@@ -28,8 +28,11 @@ public class SceneLayout {
 	public static int TILE_WIDTH = 64;
 	public static int TILE_HEIGHT = 64;
 	private static final boolean PRINT_CONTENTS = false;
-	public static final String LEVEL_PREFIX = "../media/levels/";
-	public static final String SPRITE_PREFIX = "../media/images/";
+	//public static final String LEVEL_PREFIX = "../media/levels/";
+	//public static final String SPRITE_PREFIX = "../media/images/";
+	public static final String LEVEL_PREFIX = "media/levels/";
+	public static final String SPRITE_PREFIX = "media/images/";
+	
 	private List<List<Block>> terrain = new ArrayList<List<Block>>();
 	private ArrayList<GImage> backgrounds;
 	private boolean goalHit;

@@ -56,10 +56,13 @@ public class Game extends GraphicsPane implements ActionListener {
 		healthLabel = new GLabel("Health", 100, 40);
 		healthLabel.setColor(Color.red);
 		healthLabel.setFont("Comic Sans MS-30");
+		//TODO create Stopwatch button
+		 
+		
 	}
 	/*
 	 * This maintains the various thresholds, which determines when the 
-	 * screen should actulaly start to scroll.
+	 * screen should actually start to scroll.
 	 */
 	static int leftThreshold() {
 		return MainApplication.WINDOW_WIDTH / (int) HORIZONTAL_SCROLL_RATIO;
@@ -179,6 +182,12 @@ public class Game extends GraphicsPane implements ActionListener {
 		healthButton.setLabel(Integer.toString(scenes.get(sceneNum).getPlayer().getHealth()));
 	}
 
+	/*
+	 * TODO
+	 * create method to initialize the stopwatch below
+	 * 
+	 */
+	
 	@Override
 	/*
 	 * Adding the various items to the screen
@@ -212,6 +221,7 @@ public class Game extends GraphicsPane implements ActionListener {
 		program.add(healthShell);
 		program.add(healthButton);
 		program.add(healthLabel);
+		//TODO
 	}
 
 	@Override
