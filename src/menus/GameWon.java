@@ -19,6 +19,7 @@ public class GameWon extends GraphicsPane {
 	private GButton returnToMain;
 	private GLabel congratMessage;
 	private MainApplication program;
+	//TODO create GLabel for the stopwatchMessage
 	
 
 	/*
@@ -34,6 +35,13 @@ public class GameWon extends GraphicsPane {
 		congratMessage = new GLabel("Congratulations you beat the Level!", MainApplication.WINDOW_WIDTH / 5, MainApplication.WINDOW_HEIGHT / 3 + 20);
 		congratMessage.setFont("Comic Sans MS-36");
 		congratMessage.setColor(Color.WHITE);
+		//TODO stop the timer and display time in new label
+		
+		//TODO set font for the stopwatchMessage
+		
+		//TODO set color for the stopwatchMessage
+		
+		//TODO save the stopwatchMessage in a text file that gets appended to
 	}
 	
 	/*
@@ -59,6 +67,7 @@ public class GameWon extends GraphicsPane {
 		program.add(returnToMain);
 		program.add(congratMessage);
 		program.setBackground(Color.DARK_GRAY);
+		//TODO add buttons and labels for the stopwatch here
 		
 	}
 
@@ -68,6 +77,7 @@ public class GameWon extends GraphicsPane {
 		program.setBackground(null);
 		program.remove(returnToMain);
 		program.remove(congratMessage);
+		//TODO remove buttons and labels for the stopwatch here
 		
 	}
 

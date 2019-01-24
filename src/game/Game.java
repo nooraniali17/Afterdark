@@ -42,6 +42,10 @@ public class Game extends GraphicsPane implements ActionListener {
 	private GLabel healthLabel;
 	private AudioPlayer music;
 	
+	//TODO creating private variables here for stopwatch button
+	private GButton stopwatchButton;
+	private GLabel stopwatchLabel;
+	
 	public Game(MainApplication app) {
 		this.program = app;
 		sceneNum = 0;
@@ -56,7 +60,9 @@ public class Game extends GraphicsPane implements ActionListener {
 		healthLabel = new GLabel("Health", 100, 40);
 		healthLabel.setColor(Color.red);
 		healthLabel.setFont("Comic Sans MS-30");
-		//TODO create Stopwatch button
+		//TODO create stopwatch button and label below
+		stopwatchButton = new GButton("Stopwatch",300, 50, 200, 20, Color.green);
+		
 		 
 		
 	}
@@ -118,6 +124,9 @@ public class Game extends GraphicsPane implements ActionListener {
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
 			walk = Direction.EAST;
 			curScene.playerWalk(Direction.EAST);
+			
+			//TODO start the actual stopwatch here because this is when the player starts moving
+			
 		}
 		// User presses Left or A: moves character left
 		else if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
@@ -183,10 +192,17 @@ public class Game extends GraphicsPane implements ActionListener {
 	}
 
 	/*
-	 * TODO
-	 * create method to initialize the stopwatch below
+	 * This method will need to display an actual stopwatch in the label that times
+	 * how long it takes the player to reach the end of that particular level.
 	 * 
 	 */
+	
+	public void updateStopwatch() {
+		//TODO set the size of the stopwatch here
+		
+		//TODO set the label of the stopwatch to show the actual timer
+		
+	}
 	
 	@Override
 	/*
@@ -221,7 +237,9 @@ public class Game extends GraphicsPane implements ActionListener {
 		program.add(healthShell);
 		program.add(healthButton);
 		program.add(healthLabel);
-		//TODO
+		//TODO add the stopwatch button to the screen
+		
+		//TODO add the stopwatch label to the screen
 	}
 
 	@Override
