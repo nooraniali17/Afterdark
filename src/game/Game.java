@@ -42,7 +42,7 @@ public class Game extends GraphicsPane implements ActionListener {
 	private GLabel healthLabel;
 	private AudioPlayer music;
 	
-	//TODO creating private variables here for stopwatch button
+	//TODO creating private variables here for stopwatch button test
 	private GButton stopwatchButton;
 	private GLabel stopwatchLabel;
 	
