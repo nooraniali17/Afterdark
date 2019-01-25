@@ -26,7 +26,7 @@ public class GameWon extends GraphicsPane {
 	private MainApplication program;
 	//TODO create GLabel for the stopwatchMessage
 	private GLabel timeMessage;
-	public static int secondsPassed;
+	
 	
 	//TODO create GButton to access the high scores text file
 	private GButton highScoreButton;
@@ -47,7 +47,7 @@ public class GameWon extends GraphicsPane {
 		
 		//TODO stop the timer and display time in new label
 		System.out.println(Game.secondsPassed);
-		timeMessage = new GLabel("You finished it in "+secondsPassed+" seconds!", MainApplication.WINDOW_WIDTH / 3 - 80, 2 * MainApplication.WINDOW_HEIGHT / 3);
+		timeMessage = new GLabel("", MainApplication.WINDOW_WIDTH / 3 - 80, 2 * MainApplication.WINDOW_HEIGHT / 3);
 		
 		//TODO set font for the stopwatchMessage
 		timeMessage.setFont("Comic Sans MS-36");
@@ -100,6 +100,7 @@ public class GameWon extends GraphicsPane {
 		program.add(congratMessage);
 		program.setBackground(Color.DARK_GRAY);
 		//TODO add buttons and labels for the stopwatch here
+		timeMessage.setLabel("You finished the level in "+program.getSecondsPassed()+" seconds!");
 		program.add(timeMessage);
 		//TODO add high score button
 		program.add(highScoreButton);

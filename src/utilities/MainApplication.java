@@ -22,7 +22,7 @@ public class MainApplication extends GraphicsApplication {
 	public static final int WINDOW_HEIGHT = 768;
 	
 	private GraphicsPane menu;
-	private GraphicsPane game;
+	private Game game;
 	private GraphicsPane pauseMenu;
 	private GraphicsPane settings;
 	private GraphicsPane controls;
@@ -34,6 +34,9 @@ public class MainApplication extends GraphicsApplication {
 	private boolean musicIsOn = true;
 	private boolean soundIsOn = true;
 	private Difficulty difficultySetting;
+	
+	//TODO create seconds passed variable
+	
 	
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -71,6 +74,11 @@ public class MainApplication extends GraphicsApplication {
 	 * The various methods below call other methods that actually change
 	 * the screen in the game.
 	 */
+	
+	//TODO need this getter so that way GameWon.java can access seconds passed
+	public int getSecondsPassed() {
+		return game.getSecondsPassed();
+	}
 	
 	public void switchToCredits(){
 		switchToScreen(credits);

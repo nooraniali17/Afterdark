@@ -214,6 +214,11 @@ public class Game extends GraphicsPane implements ActionListener {
 		stopwatchButton.setLabel(Integer.toString(secondsPassed));
 	}
 	
+	//TODO need this getter so that way MainApplication.java can access seconds passed
+	public int getSecondsPassed() {
+		return secondsPassed;
+	}
+	
 	@Override
 	/*
 	 * Adding the various items to the screen
