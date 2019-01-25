@@ -46,6 +46,12 @@ public class Game extends GraphicsPane implements ActionListener {
 	private GButton stopwatchButton;
 	private GLabel stopwatchLabel;
 	
+	//TODO create private variable for time elapsed while playing game
+	private int secondsPassed=0;
+	
+	//TODO create private variable for the number of ticks before changing time
+	private int numTicks;
+	
 	public Game(MainApplication app) {
 		this.program = app;
 		sceneNum = 0;
@@ -61,8 +67,8 @@ public class Game extends GraphicsPane implements ActionListener {
 		healthLabel.setColor(Color.red);
 		healthLabel.setFont("Comic Sans MS-30");
 		//TODO create stopwatch button and label below
-		stopwatchButton = new GButton("0 second(s)",400, 50, 200, 50, Color.green);
-		stopwatchLabel = new GLabel("Stopwatch", 400, 40);
+		stopwatchButton = new GButton("0", 400, 50, 150, 50, Color.green);
+		stopwatchLabel = new GLabel("Seconds Elapsed", 400, 40);
 		stopwatchLabel.setColor(Color.green);
 		stopwatchLabel.setFont("Comic Sans MS-30");
 		
@@ -128,9 +134,6 @@ public class Game extends GraphicsPane implements ActionListener {
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
 			walk = Direction.EAST;
 			curScene.playerWalk(Direction.EAST);
-			
-			//TODO start the actual stopwatch here because this is when the player starts moving
-			
 		}
 		// User presses Left or A: moves character left
 		else if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
@@ -184,7 +187,16 @@ public class Game extends GraphicsPane implements ActionListener {
 		updateHealthBar();
 		Scene curScene = scenes.get(sceneNum);
 		curScene.tick(walk);
-		updateStopwatch();
+		numTicks++;
+		System.out.println("Number of ticks: "+numTicks);
+		
+		//TODO Need to update stopwatch after every second of gameplay
+		//check the number of ticks and see if it equals 1 second
+		//ticks happen once every 20ms so 50 ticks is 1 second
+		//if it does then increment the number of seconds passed in the game
+		if(numTicks % 50 == 0) {
+			updateStopwatch();
+		}
 	}
 	
 	/*
@@ -203,10 +215,9 @@ public class Game extends GraphicsPane implements ActionListener {
 	 */
 	
 	public void updateStopwatch() {
-		//TODO set the size of the stopwatch here
-		//stopwatchButton.setLabel("0:00");
 		//TODO set the label of the stopwatch to show the actual timer
-		
+		secondsPassed++;
+		stopwatchButton.setLabel(Integer.toString(secondsPassed));
 	}
 	
 	@Override
@@ -242,11 +253,13 @@ public class Game extends GraphicsPane implements ActionListener {
 		program.add(healthShell);
 		program.add(healthButton);
 		program.add(healthLabel);
+		
 		//TODO add the stopwatch button to the screen
 		program.add(stopwatchButton);
+		//TODO add the stopwatch label to the screen
 		program.add(stopwatchLabel);
 		
-		//TODO add the stopwatch label to the screen
+		
 	}
 
 	@Override
