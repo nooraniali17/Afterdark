@@ -61,7 +61,11 @@ public class Game extends GraphicsPane implements ActionListener {
 		healthLabel.setColor(Color.red);
 		healthLabel.setFont("Comic Sans MS-30");
 		//TODO create stopwatch button and label below
-		stopwatchButton = new GButton("Stopwatch",300, 50, 200, 20, Color.green);
+		stopwatchButton = new GButton("0 second(s)",400, 50, 200, 50, Color.green);
+		stopwatchLabel = new GLabel("Stopwatch", 400, 40);
+		stopwatchLabel.setColor(Color.green);
+		stopwatchLabel.setFont("Comic Sans MS-30");
+		
 		
 		 
 		
@@ -180,6 +184,7 @@ public class Game extends GraphicsPane implements ActionListener {
 		updateHealthBar();
 		Scene curScene = scenes.get(sceneNum);
 		curScene.tick(walk);
+		updateStopwatch();
 	}
 	
 	/*
@@ -199,7 +204,7 @@ public class Game extends GraphicsPane implements ActionListener {
 	
 	public void updateStopwatch() {
 		//TODO set the size of the stopwatch here
-		
+		//stopwatchButton.setLabel("0:00");
 		//TODO set the label of the stopwatch to show the actual timer
 		
 	}
@@ -238,6 +243,8 @@ public class Game extends GraphicsPane implements ActionListener {
 		program.add(healthButton);
 		program.add(healthLabel);
 		//TODO add the stopwatch button to the screen
+		program.add(stopwatchButton);
+		program.add(stopwatchLabel);
 		
 		//TODO add the stopwatch label to the screen
 	}
