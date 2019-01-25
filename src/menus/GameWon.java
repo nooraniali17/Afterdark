@@ -20,7 +20,7 @@ public class GameWon extends GraphicsPane {
 	private GLabel congratMessage;
 	private MainApplication program;
 	//TODO create GLabel for the stopwatchMessage
-	
+	private GLabel timeMessage;
 
 	/*
 	 * This is the constructor that adds the various buttons and labels to

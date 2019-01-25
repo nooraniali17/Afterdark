@@ -47,7 +47,7 @@ public class Game extends GraphicsPane implements ActionListener {
 	private GLabel stopwatchLabel;
 	
 	//TODO create private variable for time elapsed while playing game
-	private int secondsPassed=0;
+	private int secondsPassed;
 	
 	//TODO create private variable for the number of ticks before changing time
 	private int numTicks;
@@ -71,10 +71,6 @@ public class Game extends GraphicsPane implements ActionListener {
 		stopwatchLabel = new GLabel("Seconds Elapsed", 400, 40);
 		stopwatchLabel.setColor(Color.green);
 		stopwatchLabel.setFont("Comic Sans MS-30");
-		
-		
-		 
-		
 	}
 	/*
 	 * This maintains the various thresholds, which determines when the 
@@ -187,8 +183,8 @@ public class Game extends GraphicsPane implements ActionListener {
 		updateHealthBar();
 		Scene curScene = scenes.get(sceneNum);
 		curScene.tick(walk);
+		//TODO increment the number of ticks to keep track of how many occur
 		numTicks++;
-		System.out.println("Number of ticks: "+numTicks);
 		
 		//TODO Need to update stopwatch after every second of gameplay
 		//check the number of ticks and see if it equals 1 second
@@ -211,9 +207,7 @@ public class Game extends GraphicsPane implements ActionListener {
 	/*
 	 * This method will need to display an actual stopwatch in the label that times
 	 * how long it takes the player to reach the end of that particular level.
-	 * 
 	 */
-	
 	public void updateStopwatch() {
 		//TODO set the label of the stopwatch to show the actual timer
 		secondsPassed++;
@@ -267,5 +261,7 @@ public class Game extends GraphicsPane implements ActionListener {
 		program.removeAll();
 		gameLoop.stop(); 
 	}
+	
+	
 	
 }
