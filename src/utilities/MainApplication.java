@@ -35,7 +35,6 @@ public class MainApplication extends GraphicsApplication {
 	private boolean soundIsOn = true;
 	private Difficulty difficultySetting;
 	
-	//TODO create seconds passed variable
 	
 	
 	public void init() {
