@@ -18,6 +18,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.awt.Desktop;
+import java.io.File;
 
 /*
  * This is a pane that shows up when the player has won the game! The only way the user can win the game is 
@@ -106,11 +108,16 @@ public class GameWon extends GraphicsPane {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
-			
-			
-			System.out.println("HELLO!!!!!");
-			
+			File file = new File("High Scores.txt");
+			Desktop desktop = Desktop.getDesktop();
+			if(file.exists()) {
+				try {
+					desktop.open(file);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 		}
 	}
 

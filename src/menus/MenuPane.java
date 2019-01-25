@@ -27,6 +27,7 @@ public class MenuPane extends GraphicsPane {
 	private GButton titleButton;
 	
 	
+	
 //	These are all the factors for the buttons we put into the menu. 
 //	The buttons are all invisible due to the background.
 	private static final double WIDTH_FACTOR = 25.6;
@@ -65,6 +66,7 @@ public class MenuPane extends GraphicsPane {
 						program.WINDOW_WIDTH/OTHER_SIZE_WIDTH,
 						program.WINDOW_HEIGHT/OTHER_SIZE_HEIGHT, false);
 		titleButton = new GButton(TITLE_OFFSET, 0, 520, 75, false);
+		
 		music = AudioPlayer.getInstance();
 	}
 	
@@ -159,7 +161,5 @@ public class MenuPane extends GraphicsPane {
 		if(obj == titleButton){
 			program.switchToCredits();
 		}
-		
-		
 	}
 }
