@@ -12,6 +12,10 @@ import utilities.GButton;
 import utilities.GraphicsPane;
 import utilities.MainApplication;
 
+//TODO import necessary libraries
+import java.io.FileWriter;
+import java.io.IOException;
+
 /*
  * This is a pane that shows up when the player has won the game! The only way the user can win the game is 
  * if the user passes the level.
@@ -51,6 +55,18 @@ public class GameWon extends GraphicsPane {
 		//TODO set color for the stopwatchMessage
 		timeMessage.setColor(Color.WHITE);
 		
+		//TODO write the seconds passed into a text file
+		try {
+			FileWriter writer = new FileWriter("High Scores.txt", true);
+			writer.write("High Scores!/n");
+			writer.write("\r\n");
+			writer.write("HIGH SCORE #1");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		//TODO save the stopwatchMessage in a text file that gets appended to
 		highScoreButton = new GButton("View High Scores", (double) MainApplication.WINDOW_WIDTH / 5 + 100, 2 * (double) MainApplication.WINDOW_HEIGHT / 3 + 100, 400, 100, Color.DARK_GRAY);
 		
@@ -71,6 +87,9 @@ public class GameWon extends GraphicsPane {
 			program.switchToMenu();
 		}
 		//TODO if mouse pressed on view high scores open text file
+		if(obj == highScoreButton) {
+			//TODO open text file here
+		}
 	}
 
 	
