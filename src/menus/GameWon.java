@@ -2,6 +2,7 @@ package menus;
 
 import acm.graphics.GLabel;
 import acm.graphics.GObject;
+import game.Game;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -21,6 +22,10 @@ public class GameWon extends GraphicsPane {
 	private MainApplication program;
 	//TODO create GLabel for the stopwatchMessage
 	private GLabel timeMessage;
+	public static int secondsPassed;
+	
+	//TODO create GButton to access the high scores text file
+	private GButton highScoreButton;
 
 	/*
 	 * This is the constructor that adds the various buttons and labels to
@@ -35,13 +40,20 @@ public class GameWon extends GraphicsPane {
 		congratMessage = new GLabel("Congratulations you beat the Level!", MainApplication.WINDOW_WIDTH / 5, MainApplication.WINDOW_HEIGHT / 3 + 20);
 		congratMessage.setFont("Comic Sans MS-36");
 		congratMessage.setColor(Color.WHITE);
+		
 		//TODO stop the timer and display time in new label
+		System.out.println(Game.secondsPassed);
+		timeMessage = new GLabel("You finished it in "+secondsPassed+" seconds!", MainApplication.WINDOW_WIDTH / 3 - 80, 2 * MainApplication.WINDOW_HEIGHT / 3);
 		
 		//TODO set font for the stopwatchMessage
+		timeMessage.setFont("Comic Sans MS-36");
 		
 		//TODO set color for the stopwatchMessage
+		timeMessage.setColor(Color.WHITE);
 		
 		//TODO save the stopwatchMessage in a text file that gets appended to
+		highScoreButton = new GButton("View High Scores", (double) MainApplication.WINDOW_WIDTH / 5 + 100, 2 * (double) MainApplication.WINDOW_HEIGHT / 3 + 100, 400, 100, Color.DARK_GRAY);
+		
 	}
 	
 	/*
@@ -58,6 +70,7 @@ public class GameWon extends GraphicsPane {
 			program.resetGame();
 			program.switchToMenu();
 		}
+		//TODO if mouse pressed on view high scores open text file
 	}
 
 	
@@ -68,6 +81,9 @@ public class GameWon extends GraphicsPane {
 		program.add(congratMessage);
 		program.setBackground(Color.DARK_GRAY);
 		//TODO add buttons and labels for the stopwatch here
+		program.add(timeMessage);
+		//TODO add high score button
+		program.add(highScoreButton);
 		
 	}
 
@@ -77,8 +93,12 @@ public class GameWon extends GraphicsPane {
 		program.setBackground(null);
 		program.remove(returnToMain);
 		program.remove(congratMessage);
-		//TODO remove buttons and labels for the stopwatch here
 		
+		//TODO remove buttons and labels for the stopwatch here
+		program.remove(timeMessage);
+		
+		//TODO remove high score button
+		program.remove(highScoreButton);
 	}
 
 }

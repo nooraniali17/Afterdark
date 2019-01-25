@@ -72,6 +72,7 @@ public abstract class GraphicsPane implements Interfaceable {
 	public void keyTyped(KeyEvent e) {
 		
 	}
+	
 
 	public void run() {
 		

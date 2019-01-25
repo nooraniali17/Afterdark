@@ -46,8 +46,8 @@ public class Game extends GraphicsPane implements ActionListener {
 	private GButton stopwatchButton;
 	private GLabel stopwatchLabel;
 	
-	//TODO create private variable for time elapsed while playing game
-	private int secondsPassed;
+	//TODO create public variable for time elapsed while playing game
+	public static int secondsPassed;
 	
 	//TODO create private variable for the number of ticks before changing time
 	private int numTicks;
