@@ -62,8 +62,6 @@ public class GameWon extends GraphicsPane {
 		//TODO set color for the stopwatchMessage
 		timeMessage.setColor(Color.WHITE);
 		
-		
-		
 		//TODO save the stopwatchMessage in a text file that gets appended to
 		highScoreButton = new GButton("View High Scores", (double) MainApplication.WINDOW_WIDTH / 5 + 100, 2 * (double) MainApplication.WINDOW_HEIGHT / 3 + 100, 400, 100, Color.DARK_GRAY);
 		
@@ -86,13 +84,15 @@ public class GameWon extends GraphicsPane {
 		}
 		//TODO if mouse pressed on view high scores open text file
 		if(obj == highScoreButton) {
-			//TODO open text file here
+			//TODO opening text file below after click
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader("High Scores.txt"), bufferSize);
+				//TODO try to grab old text from file and then compare that text with new seconds value
+				//if new seconds value is less than old text then write new seconds value to file
 				try {
 					oldScoreString = bufferedReader.readLine();
 					bufferedReader.close();
-					System.out.println("OLD SCORE: "+Integer.parseInt(oldScoreString));
+					//System.out.println("OLD SCORE: "+Integer.parseInt(oldScoreString));
 					if(program.getSecondsPassed() < Integer.parseInt(oldScoreString)) {
 						//TODO write the seconds passed into a text file
 						FileWriter writer = new FileWriter("High Scores.txt");
@@ -108,6 +108,8 @@ public class GameWon extends GraphicsPane {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			//TODO if the file exists open the text file after the reading and writing has finished
+			//then open the text file in a new window
 			File file = new File("High Scores.txt");
 			Desktop desktop = Desktop.getDesktop();
 			if(file.exists()) {
@@ -130,7 +132,7 @@ public class GameWon extends GraphicsPane {
 		program.setBackground(Color.DARK_GRAY);
 		//TODO add buttons and labels for the stopwatch here
 		timeMessage.setLabel("You finished the level in "+program.getSecondsPassed()+" seconds!");
-		System.out.println(program.getSecondsPassed());
+		//System.out.println(program.getSecondsPassed());
 		program.add(timeMessage);
 		//TODO add high score button
 		program.add(highScoreButton);
@@ -144,7 +146,7 @@ public class GameWon extends GraphicsPane {
 		program.remove(returnToMain);
 		program.remove(congratMessage);
 		
-		//TODO remove buttons and labels for the stopwatch here
+		//TODO remove label for the stopwatch
 		program.remove(timeMessage);
 		
 		//TODO remove high score button

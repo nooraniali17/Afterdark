@@ -74,7 +74,7 @@ public class MainApplication extends GraphicsApplication {
 	 * the screen in the game.
 	 */
 	
-	//TODO need this getter so that way GameWon.java can access seconds passed
+	//TODO need this getter so that way GameWon.java can access seconds passed from this class
 	public int getSecondsPassed() {
 		return game.getSecondsPassed();
 	}

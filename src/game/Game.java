@@ -42,11 +42,11 @@ public class Game extends GraphicsPane implements ActionListener {
 	private GLabel healthLabel;
 	private AudioPlayer music;
 	
-	//TODO creating private variables here for stopwatch button test
+	//TODO creating private variables here for stopwatch button and label
 	private GButton stopwatchButton;
 	private GLabel stopwatchLabel;
 	
-	//TODO create public variable for time elapsed while playing game
+	//TODO create public variable for time elapsed while playing game to access in GameWon.java
 	public static int secondsPassed;
 	
 	//TODO create private variable for the number of ticks before changing time
@@ -69,8 +69,11 @@ public class Game extends GraphicsPane implements ActionListener {
 		//TODO create stopwatch button and label below
 		stopwatchButton = new GButton("0", 400, 50, 150, 50, Color.green);
 		stopwatchLabel = new GLabel("Seconds Elapsed", 400, 40);
+		//TODO format label
 		stopwatchLabel.setColor(Color.green);
 		stopwatchLabel.setFont("Comic Sans MS-30");
+		//TODO reset seconds passed
+		secondsPassed = 0;
 	}
 	/*
 	 * This maintains the various thresholds, which determines when the 
@@ -189,7 +192,7 @@ public class Game extends GraphicsPane implements ActionListener {
 		//TODO Need to update stopwatch after every second of gameplay
 		//check the number of ticks and see if it equals 1 second
 		//ticks happen once every 20ms so 50 ticks is 1 second
-		//if it does then increment the number of seconds passed in the game
+		//if 1 second passes then increment the number of seconds passed in the game
 		if(numTicks % 50 == 0) {
 			updateStopwatch();
 		}
@@ -209,7 +212,8 @@ public class Game extends GraphicsPane implements ActionListener {
 	 * how long it takes the player to reach the end of that particular level.
 	 */
 	public void updateStopwatch() {
-		//TODO set the label of the stopwatch to show the actual timer
+		//TODO increment variable after every second
+		//set the label of the stopwatch to show the actual timer and convert string to int for set label
 		secondsPassed++;
 		stopwatchButton.setLabel(Integer.toString(secondsPassed));
 	}
@@ -265,6 +269,7 @@ public class Game extends GraphicsPane implements ActionListener {
 	public void hideContents() {
 		program.removeAll();
 		gameLoop.stop(); 
+		
 	}
 	
 	
